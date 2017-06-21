@@ -5,4 +5,44 @@
     <vqmver required="true">2.6.0</vqmver>
     <author>Michal Landsman</author>
 
+    <!-- log PHP errors -->
+    <file path="system/startup.php">
+        <operation info="bring sentry">
+            <search position="after">
+                <![CDATA[spl_autoload_extensions('.php');]]>
+            </search>
+            <add>
+                <![CDATA[
+                    if(defined('SENTRY_PHP')) {
+
+                        if(!empty(SENTRY_PHP)){
+
+                            $sentryDNS = SENTRY_PHP;
+                            $client = new Raven_Client("{$sentryDNS}");
+                            $error_handler = new Raven_ErrorHandler($client);
+                            $error_handler->registerExceptionHandler();
+                            $error_handler->registerErrorHandler();
+                            $error_handler->registerShutdownFunction();
+
+                        }else {
+                            echo "Please fill your `SENTRY_PHP` constant in config.php";
+                            die;
+                        }
+                    }
+                ]]>
+            </add>
+        </operation>
+    </file>
+
+    <!-- log javascript errors, doc: https://docs.sentry.io/clients/javascript/config/#optional-settings -->
+    <file path="catalog/view/theme/*/template/common/header.tpl">
+        <operation info="bring sentry">
+            <search position="before">
+                <![CDATA[<?php foreach ($scripts as $script) { ?>]]>
+            </search>
+            <add><![CDATA[<script src="https://cdn.ravenjs.com/3.15.0/raven.min.js" type="text/javascript"></script>
+<script><?php if(defined('SENTRY_JS') && !empty(SENTRY_JS)) {?>Raven.config("<?php echo SENTRY_JS ?>").install()<?php }else {?>console.warn('Please setup your `SENTRY_JS` constant for log errors.')<?php }?></script>]]></add>
+        </operation>
+    </file>
+
 </modification>
