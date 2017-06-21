@@ -13,7 +13,11 @@
             </search>
             <add>
                 <![CDATA[
-                    if(defined('SENTRY_PHP')) {
+                    // github.com/burdapraha/oc_tracy
+                    $tracyIsOff = (!defined('DEV') || defined('DEV') && false == DEV);
+
+                    // is allowed to run
+                    if(defined('SENTRY_PHP') && $tracyIsOff) {
 
                         if(!empty(SENTRY_PHP)){
 
