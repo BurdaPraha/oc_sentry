@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <id>Sentry</id>
+    <version>0.1</version>
+    <vqmver required="true">2.6.0</vqmver>
+    <author>Michal Landsman</author>
+
+</modification>

@@ -1,0 +1,13 @@
+{
+  "name": "burdapraha/oc_sentry",
+  "type": "vqmod-plugin",
+  "description": "Implementation Sentry for Opencart 2.3.x",
+  "keywords": ["opencart", "sentry", "sentry-php", "debugger", "logger"],
+  "homepage": "http://burda.cz/cs/kariera/volna-mista",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.6.0",
+    "sasedev/composer-plugin-filecopier": "^1.1",
+    "sentry/sentry": "^1.7"
+  }
+}
