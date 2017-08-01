@@ -1,8 +1,4 @@
-<p align="center">
-    <a href="https://sentry.io" target="_blank" align="center">
-        <img src="https://sentry.io/_static/getsentry/images/branding/png/sentry-horizontal-black.png" width="280">
-    </a>
-</p>
+![logo](./doc/logo.png)
 
 # Sentry for 🛒 [OpenCart 2.3.x](https://github.com/opencart/opencart)
 
