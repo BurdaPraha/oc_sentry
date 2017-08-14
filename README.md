@@ -19,7 +19,12 @@ For more information see official [Sentry repository](https://github.com/getsent
                 "source": "vendor/burdapraha/oc_sentry/upload",
                 "destination": "upload",
                 "debug": "true"
-            }
+            },
+            {
+                "source": "vendor/burdapraha/oc_version_number/upload",
+                "destination": "upload",
+                "debug": "true"
+            }            
         ]
     }    
 ```
@@ -30,6 +35,7 @@ It will move vQmod xml file to correct folder.
 
 - `define('SENTRY_PHP', 'FILL_YOUR_ACCESS_PHP');`
 - `define('SENTRY_JS', 'FILL_YOUR_ACCESS_JS');`
+- `define('SENTRY_JS_LIB', ''); // here constant is optional, if you want use self-hosted raven-js library`
 
 6. optionally you can add row to your `.gitignore` file with path to sentry.xml (example: upload/vqmod/xml/sentry.xml)
 7. celebrate! 🎉 🎉 🎉

@@ -8,6 +8,7 @@
   "require": {
     "php": ">=5.6.0",
     "sasedev/composer-plugin-filecopier": "^1.1",
-    "sentry/sentry": "^1.7"
+    "sentry/sentry": "^1.7",
+    "burdapraha/oc_version_number": "^1.0"
   }
 }

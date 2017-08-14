@@ -44,8 +44,8 @@
             <search position="before">
                 <![CDATA[<?php foreach ($scripts as $script) { ?>]]>
             </search>
-            <add><![CDATA[<script src="https://cdn.ravenjs.com/3.15.0/raven.min.js" type="text/javascript"></script>
-<script><?php if(defined('SENTRY_JS') && !empty(SENTRY_JS)) {?>Raven.config("<?php echo SENTRY_JS ?>").install()<?php }else {?>console.warn('Please setup your `SENTRY_JS` constant for log errors.')<?php }?></script>]]></add>
+            <add><![CDATA[<script src="<?php if(!defined('SENTRY_JS_LIB') && !empty(SENTRY_JS_LIB)) {?>https://cdn.ravenjs.com/3.15.0/raven.min.js<?php }else {echo SENTRY_JS_LIB; ?><?php }?>" type="text/javascript"></script>
+            <script><?php if(defined('SENTRY_JS') && !empty(SENTRY_JS)) {?>Raven.config("<?php echo SENTRY_JS ?>").install()<?php }else {?>console.warn('Please setup your `SENTRY_JS` constant for log errors.')<?php }?></script>]]></add>
         </operation>
     </file>
 
